@@ -1,0 +1,49 @@
+Particle p1, p2, p3;
+
+Particle P;
+//PVector vel;
+//PVector acc;
+//PVector pos;
+
+
+void setup() {
+
+  size ( 300, 300);
+   P = new Particle(40,50);
+ // p1 = new Particle(new PVector(0,0), new PVector(0,0));
+  //p2 = new Particle(new PVector(0,0), new PVector(0,0));
+}
+
+void draw() {
+  background(60);
+  ellipse(30,30,40,40);
+  P.show();
+  P.update();
+  //p1.v = 
+}
+
+-----------------------------------------------------------------------
+
+class Particle {
+  PVector v;
+  PVector p;
+  PVector a;
+  Particle(float x,float y){
+    v = new PVector(0,1);
+    p = new PVector (x,y);
+    a = new PVector(0,0);
+    
+  }
+  
+  void  update(){
+    v.add(a);
+    p.add(v);
+    
+    // position changes
+  }
+  
+  void show(){
+    ellipse(p.x,p.y,30,30);// rendering - show the particle
+  }
+}
+  
