@@ -1,0 +1,53 @@
+Particle[] l = { 
+  
+  new Particle (500,100),
+  new Particle (200,150),
+  new Particle (350,250)};
+
+
+void setup(){
+  size(600,600);
+   
+}
+void draw(){
+  background(100);
+ 
+  
+  for(int i = 0; i < l.length; i++){
+    l[i].update();
+    l[i].display();
+   
+  }
+  
+}
+--------------------------------------
+
+
+class Particle {
+PVector pos;  
+PVector vel;
+PVector acc;
+float speed;
+float maxforce;
+
+  Particle(float x, float y){
+  
+    pos = new PVector(x,y);
+    vel = new PVector(0,-1);
+    acc = new PVector(0,0);
+  }
+  
+ void update() {
+
+    vel.add(acc);
+    pos.add(vel);
+   
+    acc.mult(0);
+  }
+  
+ void display(){
+ 
+   ellipse(pos.x,pos.y,30,30);
+    
+  }
+}
